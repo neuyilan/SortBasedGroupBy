@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>hw</groupId>
+  <artifactId>hw1</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+ <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.hadoop.version>2.6.0</project.hadoop.version>
+		<project.hadoop.mr.version>2.6.0</project.hadoop.mr.version>
+		<project.hadoop.hive.version>2.6.0</project.hadoop.hive.version>
+		<project.hadoop.habse.version>0.98.17-hadoop2</project.hadoop.habse.version>
+		<project.jdk.tools.version>1.7</project.jdk.tools.version>
+		<java.version>1.7</java.version>
+	</properties>
+
+
+  <dependencies>
+    	<dependency>
+     	 	<groupId>junit</groupId>
+      		<artifactId>junit</artifactId>
+      		<version>3.8.1</version>
+      		<scope>test</scope>
+    	</dependency>
+    	
+  
+	
+	<!-- hadoop -->
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>${project.hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>${project.hadoop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>${project.hadoop.version}</version>
+		</dependency>
+		<dependency>
+  			<groupId>org.apache.hadoop</groupId>
+  			<artifactId>hadoop-yarn-client</artifactId>
+  			<version>${project.hadoop.version}</version>
+		</dependency>
+    
+    
+    <!-- hbase -->
+    <!-- 
+   <dependency>
+  			<groupId>org.apache.hbase</groupId>
+  			<artifactId>hbase</artifactId>
+  			<version>${project.hadoop.habse.version}</version>
+		</dependency>
+   		     -->
+   <dependency>
+  			<groupId>org.apache.hbase</groupId>
+  			<artifactId>hbase-client</artifactId>
+  			<version>${project.hadoop.habse.version}</version>
+		</dependency>
+   		    
+   <dependency>
+  			<groupId>org.apache.hbase</groupId>
+  			<artifactId>hbase-common</artifactId>
+  			<version>${project.hadoop.habse.version}</version>
+		</dependency>
+   		    
+  </dependencies>
+  
+  
+  <build>
+  	<plugins>
+  		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<version>2.4</version>
+			<configuration>
+				<descriptors>
+					<descriptor>src/main/resources/assembly.xml</descriptor>
+				</descriptors>
+			</configuration>
+
+			<executions>
+				<execution>
+					<id>make-assembly</id>
+					<phase>package</phase>
+					<goals>
+						<goal>single</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.0</version>
+			<configuration>
+				<source>1.7</source>
+				<target>1.7</target>
+				<encoding>UTF-8</encoding>
+				<verbal>true</verbal>
+			</configuration>
+		</plugin>
+
+			<!-- <plugin> <artifactId>maven-assembly-plugin</artifactId> <configuration> 
+				<appendAssemblyId>false</appendAssemblyId> <descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> 
+				</descriptorRefs> <archive> <manifest> <mainClass>com.sina.dip.jtstatistics.MRJobMetricsCollector</mainClass> 
+				</manifest> </archive> </configuration> <executions> <execution> <id>make-assembly</id> 
+				<phase>package</phase> <goals> <goal>assembly</goal> </goals> </execution> 
+				</executions> </plugin> -->
+	</plugins>
+ </build>
+  
+</project>
