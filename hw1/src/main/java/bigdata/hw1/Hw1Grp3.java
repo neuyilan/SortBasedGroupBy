@@ -205,7 +205,6 @@ public class Hw1Grp3 {
 			hAdmin.createTable(htd);
 
 			HTable table = new HTable(configuration, tableName);
-
 			// sort by key, resultMap.size will always >0
 			Object[] sortKey = resultMap[0].keySet().toArray();
 			Arrays.sort(sortKey);
