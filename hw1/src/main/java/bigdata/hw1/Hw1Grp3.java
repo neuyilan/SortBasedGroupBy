@@ -209,7 +209,6 @@ public class Hw1Grp3 {
 			// sort by key, resultMap.size will always >0
 			Object[] sortKey = resultMap[0].keySet().toArray();
 			Arrays.sort(sortKey);
-
 			Put put;
 			for (int i = 0; i < sortKey.length; i++) {
 				String key = (String) sortKey[i];
